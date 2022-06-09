@@ -20,4 +20,4 @@
 
 - full database for teachers, courses and more
 
-- front-end
+- front-end and other things
