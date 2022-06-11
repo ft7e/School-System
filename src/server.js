@@ -6,12 +6,14 @@ const app = express();
 const PORT = process.env.PORT || 3010;
 
 // Local requires
+const logger = require('./middleware/logger');
 const studentRouter = require('./routes/student.route');
 const notFoundErrorHandler = require('./error-handlers/404');
 const internalErrorHandler = require('./error-handlers/500');
 
 //Routes
 app.use(express.json());
+app.use(logger);
 app.use(studentRouter);
 app.use('*', notFoundErrorHandler);
 app.use(internalErrorHandler);
