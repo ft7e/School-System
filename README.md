@@ -16,7 +16,9 @@
 
 - Tests to check for CRUD and Logger middleware
 
-- Database for Students, Teachers, Courses
+- Database for Students
+
+- A class for models to help with creating routes.
 
 ## Incoming stuff
 

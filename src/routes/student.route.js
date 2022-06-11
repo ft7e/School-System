@@ -13,12 +13,12 @@ studentRouter.put('/student/:id', updateStudent);
 studentRouter.delete('/student/:id', deleteStudent);
 
 async function getAllStudents(req, res) {
-  const students = await Student.findAll();
+  const students = await Student.read();
   res.status(200).json(students);
 }
 async function getOneStudent(req, res) {
   const student_id = parseInt(req.params.id);
-  const student = await Student.findOne({ where: { id: student_id } });
+  const student = await Student.read(student_id);
   res.status(200).json(student);
 }
 async function addStudent(req, res) {
@@ -29,7 +29,7 @@ async function addStudent(req, res) {
 async function updateStudent(req, res) {
   const student_id = parseInt(req.params.id);
   const studentInfo = req.body;
-  const foundStudent = await Student.findOne({ where: { id: student_id } });
+  const foundStudent = await Student.read(student_id);
   if (foundStudent) {
     const updatedStudent = await foundStudent.update(studentInfo);
     res.status(201).json(updatedStudent);
@@ -39,12 +39,7 @@ async function updateStudent(req, res) {
 }
 async function deleteStudent(req, res) {
   let student_id = parseInt(req.params.id);
-  const foundStudent = await Student.findOne({ where: { id: student_id } });
-  if (foundStudent) {
-    const deletedStudent = await foundStudent.destroy(foundStudent);
-    res.status(204).json({ message: 'Student Deleted !' });
-  } else {
-    res.status(404).json({ message: 'Student not Found ' });
-  }
+  const foundStudent = await Student.delete(student_id);
+  res.status(204).send('Record deleted');
 }
 module.exports = studentRouter;
