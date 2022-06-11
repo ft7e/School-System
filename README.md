@@ -1,6 +1,6 @@
 # School-System
 
-# Version 1.0.0
+# Version 1.0.1
 
 ## Introduction
 
@@ -12,12 +12,14 @@
 
 - CRUD working fine af
 
+- Logger middleware that logs the Method and Route
+
+- Tests to check for CRUD and Logger middleware
+
+- Database for Students, Teachers, Courses
+
 ## Incoming stuff
 
-- logger and validator middleware
-
-- tests for CRUD and middleware
-
-- full database for teachers, courses and more
+- Improvment on the database for teachers, courses and more
 
 - front-end and other things
